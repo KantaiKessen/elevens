@@ -8,6 +8,6 @@ public class DeckTester {
 	 *	@param args is not used.
 	 */
 	public static void main(String[] args) {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
+		int x = 0;
 	}
 }
