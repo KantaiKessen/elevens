@@ -7,6 +7,8 @@
       <sourceFolder url="file://$MODULE_DIR$/Elevens Lab" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Elevens Lab/Activity2  Starter Code" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Elevens Lab/Activity3 Starter Code" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Elevens Lab/Activity9  Starter Code" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/Elevens Lab/Activity7  Starter Code" />
     </content>
     <content url="file://$MODULE_DIR$/Elevens Lab" />
     <orderEntry type="inheritedJdk" />

@@ -1,5 +1,4 @@
-import java.util.List;
-import java.util.ArrayList;
+import java.util.*;
 
 /**
  * The ElevensBoard class represents the board in a game of Elevens.
@@ -53,7 +52,23 @@ public class ElevensBoard extends Board {
 	 */
 	@Override
 	public boolean isLegal(List<Integer> selectedCards) {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+		if(selectedCards.size() == 2){
+		    int valCards = 0;
+            for (int i : selectedCards) {
+                valCards += cardAt(i).pointValue();
+            }
+            return valCards == 11;
+		}
+		else if(selectedCards.size()== 3){
+		    int numFace = 0;
+		    for(int i : selectedCards){
+                if (cardAt(i).rank().equals("jack") || cardAt(i).rank().equals("queen") || cardAt(i).rank().equals("king")){
+                    numFace++;
+                }
+            }
+             return numFace == 3;
+        }
+		return false;
 	}
 
 	/**
@@ -66,7 +81,10 @@ public class ElevensBoard extends Board {
 	 */
 	@Override
 	public boolean anotherPlayIsPossible() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+	    List<Integer> deckIndex = new ArrayList<>();
+	    for (int i = 0; i < deckSize(); i++)
+	        deckIndex.add(i);
+		return containsPairSum11(deckIndex) || containsJQK(deckIndex);
 	}
 
 	/**
@@ -78,7 +96,17 @@ public class ElevensBoard extends Board {
 	 *              contain an 11-pair; false otherwise.
 	 */
 	public boolean containsPairSum11(List<Integer> selectedCards) {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+		for(int i : selectedCards){
+		    int x = 0;
+		    if (!cardAt(i).rank().equals("jack") || !cardAt(i).rank().equals("queen") || !cardAt(i).rank().equals("king")) {
+		        x = cardAt(i).pointValue();
+		        for (int m : selectedCards){
+		            if(x + cardAt(m).pointValue() == 11)
+		                return true;
+                }
+            }
+        }
+        return false;
 	}
 
 	/**
@@ -90,6 +118,6 @@ public class ElevensBoard extends Board {
 	 *              include a jack, a queen, and a king; false otherwise.
 	 */
 	public boolean containsJQK(List<Integer> selectedCards) {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+		return false;
 	}
 }
