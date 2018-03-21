@@ -117,11 +117,7 @@ public class CardGameGUI extends JFrame implements ActionListener {
 	 * Run the game.
 	 */
 	public void displayGame() {
-		java.awt.EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				setVisible(true);
-			}
-		});
+		java.awt.EventQueue.invokeLater(() -> setVisible(true));
 	}
 
 	/**
@@ -282,10 +278,10 @@ public class CardGameGUI extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource().equals(replaceButton)) {
 			// Gather all the selected cards.
-			List<Integer> selection = new ArrayList<Integer>();
+			List<Integer> selection = new ArrayList<>();
 			for (int k = 0; k < board.size(); k++) {
 				if (selections[k]) {
-					selection.add(new Integer(k));
+					selection.add(k);
 				}
 			}
 			// Make sure that the selected cards represent a legal replacement.
