@@ -1,4 +1,5 @@
-import java.util.*;
+import java.util.List;
+import java.util.Objects;
 
 /**
  * The ElevensBoard class represents the board in a game of Elevens.
@@ -112,14 +113,12 @@ public class ElevensBoard extends Board {
 		if (selectedCards.size() < 3) {
 			return false;
 		}
-		for (int i = 0; i < selectedCards.size(); i++) {
-			if (cardAt(selectedCards.get(i)).rank() == "jack") {
+		for (Integer selectedCard : selectedCards) {
+			if (cardAt(selectedCard).rank() == "jack") {
 				hasJack = true;
-			}
-			else if (cardAt(selectedCards.get(i)).rank() == "queen") {
+			} else if (cardAt(selectedCard).rank() == "queen") {
 				hasQueen = true;
-			}
-			else if (cardAt(selectedCards.get(i)).rank() == "king") {
+			} else if (Objects.equals(cardAt(selectedCard).rank(), "king")) {
 				hasKing = true;
 			}
 		}
